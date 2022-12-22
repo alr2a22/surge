@@ -1,0 +1,5 @@
+{{geocodeArea:Tehran}}->.a;
+relation["boundary"="administrative"][type="boundary"]["admin_level"="9"](area.a);
+out;
+(way(r);>;);
+out skel;

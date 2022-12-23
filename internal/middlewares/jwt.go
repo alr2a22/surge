@@ -28,12 +28,13 @@ type UserClaims struct {
 func GenerateJWT(user models.User) (string, error) {
 	signingKey := []byte(config.GetConfig().JwtSecret)
 	t := jwt.New(jwt.SigningMethodHS256)
+	d := time.Duration(config.GetConfig().JwtValidDays) * 24 * time.Hour
 	t.Claims = UserClaims{
 		UserID:    user.ID,
 		Username:  user.Username,
 		CreatedAt: user.CreatedAt,
 		StandardClaims: jwt.StandardClaims{
-			ExpiresAt: time.Now().Add(time.Hour * 24).Unix(),
+			ExpiresAt: time.Now().Add(d).Unix(),
 		},
 	}
 

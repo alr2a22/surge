@@ -21,7 +21,8 @@ type Config struct {
 
 	LogLevel string `mapstructure:"LOGLEVEL"`
 
-	JwtSecret string `mapstructure:"JWT_SECRET"`
+	JwtSecret    string `mapstructure:"JWT_SECRET"`
+	JwtValidDays int    `mapstructure:"JWT_VALID_DAYS"`
 }
 
 var cfg *Config
@@ -38,6 +39,7 @@ func load() {
 	viper.MustBindEnv("POSTGRES_PORT")
 	viper.MustBindEnv("LOGLEVEL")
 	viper.MustBindEnv("JWT_SECRET")
+	viper.MustBindEnv("JWT_VALID_DAYS")
 
 	err := viper.Unmarshal(&cfg)
 	if err != nil {

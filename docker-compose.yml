@@ -49,6 +49,7 @@ services:
       context: .
       args:
         REGISTRY: ${REGISTRY}
+    restart: always
     ports:
       - "3000:3000"
     command: /app/main migrate && /app/main run-server
@@ -63,6 +64,7 @@ services:
       - REDIS_PORT=${REDIS_PORT}
       - LOGLEVEL=${LOGLEVEL}
       - JWT_SECRET=${JWT_SECRET}
+      - JWT_VALID_DAYS=${JWT_VALID_DAYS}
     depends_on:
       db:
         condition: service_healthy

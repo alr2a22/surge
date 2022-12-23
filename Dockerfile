@@ -5,9 +5,11 @@ FROM ${REGISTRY}/library/golang:1.19.4 AS builder
 
 WORKDIR /app
 
-COPY . .
+COPY go.* ./
 
 RUN go mod download
+
+COPY . .
 
 RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -v -o /main ./main.go
 
@@ -19,4 +21,4 @@ RUN mkdir /app
 COPY --from=builder /main /app/main
 EXPOSE 3000
 
-ENTRYPOINT ["/app/main run-server"]
+ENTRYPOINT ["/app/main", "run-server"]

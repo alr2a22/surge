@@ -20,7 +20,7 @@ func GetDBConn() *gorm.DB {
 		var err error
 		dsn := getDsn()
 		logrus.Debugf("Database connetion string: %s\n", dsn)
-		db, err = gorm.Open(postgres.Open(dsn), &gorm.Config{Logger: logger.Default.LogMode(logger.Info)})
+		db, err = gorm.Open(postgres.Open(dsn), &gorm.Config{Logger: logger.Default.LogMode(logger.LogLevel(logrus.GetLevel() - 1))})
 		if err != nil {
 			logrus.Fatal(err)
 		}

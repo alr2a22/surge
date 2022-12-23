@@ -1,0 +1,307 @@
+{
+	"info": {
+		"_postman_id": "5961efc8-646d-40dd-86be-7601f7c945c7",
+		"name": "surge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11162208"
+	},
+	"item": [
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"user\",\n    \"password\": \"123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/register",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\":\"user\",\n    \"password\":\"123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/login",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ride",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6ImFkbWluIiwic3VwZXJfdXNlciI6ZmFsc2UsImNyZWF0ZWRfYXQiOiIyMDIyLTEyLTIyVDE0OjQwOjUwLjQzMTc0KzAzOjMwIiwiZXhwIjoxNjcxNzkzOTI1fQ.fEcQSXfdA-DmfDia4ob1IKAoIxuF1V1DTc19_RMoGSs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"latitude\":35.7064,\n    \"longitude\":51.4036\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/rides",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"rides"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "list thresholds",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6ImFkbWluIiwic3VwZXJfdXNlciI6ZmFsc2UsImNyZWF0ZWRfYXQiOiIyMDIyLTEyLTIyVDE0OjQwOjUwLjQzMTc0KzAzOjMwIiwiZXhwIjoxNjcxNzkzOTI1fQ.fEcQSXfdA-DmfDia4ob1IKAoIxuF1V1DTc19_RMoGSs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/thresholds",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"thresholds"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "retrieve threshold",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6ImFkbWluIiwic3VwZXJfdXNlciI6ZmFsc2UsImNyZWF0ZWRfYXQiOiIyMDIyLTEyLTIyVDE0OjQwOjUwLjQzMTc0KzAzOjMwIiwiZXhwIjoxNjcxNzkzOTI1fQ.fEcQSXfdA-DmfDia4ob1IKAoIxuF1V1DTc19_RMoGSs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/thresholds/1",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"thresholds",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create threshold",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6ImFkbWluIiwic3VwZXJfdXNlciI6ZmFsc2UsImNyZWF0ZWRfYXQiOiIyMDIyLTEyLTIyVDE0OjQwOjUwLjQzMTc0KzAzOjMwIiwiZXhwIjoxNjcxNzkzOTI1fQ.fEcQSXfdA-DmfDia4ob1IKAoIxuF1V1DTc19_RMoGSs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"coefficient\": 1,\n    \"threshold\": 0\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/thresholds",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"thresholds"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update threshold",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6ImFkbWluIiwic3VwZXJfdXNlciI6ZmFsc2UsImNyZWF0ZWRfYXQiOiIyMDIyLTEyLTE4VDAyOjMxOjUwLjE3MyswMzozMCIsImV4cCI6MTY3MTQwNDcyNX0.MQDrLpnpkzRweTZ_LJxA-qSta5JU4tHmUtBTHuRNtzA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"threshold\": 10000,\n    \"coefficient\": 0.5\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/thresholds/1",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"thresholds",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "127.0.0.1:3000",
+			"type": "string"
+		}
+	]
+}

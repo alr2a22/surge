@@ -15,7 +15,7 @@ type RedisBackend struct {
 	conn *redis.Client
 }
 
-var windowSizeSeconds = time.Duration(time.Minute * 10).Seconds() // in seconds
+var windowSizeSeconds = (time.Minute * time.Duration(config.GetConfig().WindowMinutes)).Seconds() // in seconds
 var rb *RedisBackend
 var onceRedis sync.Once
 

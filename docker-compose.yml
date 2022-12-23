@@ -65,6 +65,7 @@ services:
       - LOGLEVEL=${LOGLEVEL}
       - JWT_SECRET=${JWT_SECRET}
       - JWT_VALID_DAYS=${JWT_VALID_DAYS}
+      - WINDOW_MINUTES=${WINDOW_MINUTES}
     depends_on:
       db:
         condition: service_healthy

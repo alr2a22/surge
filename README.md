@@ -57,6 +57,7 @@ For production follow these steps:
    JWT_SECRET=asdf1234
    JWT_VALID_DAYS=10
    REGISTRY=registry.docker.ir
+   WINDOW_MINUTES=10
    ```
 
 2. The command below run all commponents of project

@@ -60,7 +60,7 @@ func RideHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	nReq := db.GetRedisBackend().AddNewRequestWithPrefix(districtID)
-	// nReq, _ := rr.CountRideRequestWithDistrictWithWindow(districtID, time.Minute*10)
+	// nReq, _ := rr.CountRideRequestWithDistrictWithWindow(districtID, time.Minute * time.Duration(config.GetConfig().WindowMinutes))
 
 	logrus.Debugln("number requets in window:", nReq)
 	coefficient, err := models.GetCurrentCoefficient(nReq)

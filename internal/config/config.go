@@ -21,8 +21,9 @@ type Config struct {
 
 	LogLevel string `mapstructure:"LOGLEVEL"`
 
-	JwtSecret    string `mapstructure:"JWT_SECRET"`
-	JwtValidDays int    `mapstructure:"JWT_VALID_DAYS"`
+	JwtSecret     string `mapstructure:"JWT_SECRET"`
+	JwtValidDays  int    `mapstructure:"JWT_VALID_DAYS"`
+	WindowMinutes int    `mapstructure:"WINDOW_MINUTES"`
 }
 
 var cfg *Config
@@ -40,6 +41,7 @@ func load() {
 	viper.MustBindEnv("LOGLEVEL")
 	viper.MustBindEnv("JWT_SECRET")
 	viper.MustBindEnv("JWT_VALID_DAYS")
+	viper.MustBindEnv("WINDOW_MINUTES")
 
 	err := viper.Unmarshal(&cfg)
 	if err != nil {

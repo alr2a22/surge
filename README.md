@@ -20,7 +20,7 @@ Also for a PoC I consider these features:
   - log: large and without update or delete
   - timeseries: query on duration and have fresh data using TSDBs is so useful
   - spital: query on a area for analytic or other queries that work with surge project(like get ride requests near a driver)
-- Demand aggrigator for a district can be temporary achived in a cache and can be like a rate limiter algorithem (like Sliding Window rate limiter). Using Sliding Window have some cons and pros:
+- Demand aggrigator for a district can be temporary achived in a cache and can be like a rate limiter algorithem (like Sliding Window rate limiter). Using [Sliding Window](https://www.geeksforgeeks.org/window-sliding-technique/) have some cons and pros:
 
   - pros: super fast query time with redis
   - cons: result have low accuracy compare to direct query from database. The smaller window size decreases error.
@@ -36,7 +36,7 @@ Also for a PoC I consider these features:
 - Adminer: Adminer is a tool for managing content in databases.
 - query to calculate demand with PostGIS in [here](./api/ride/models/ride_req.go) and with redis in [here](./internal/db/redis.go).
 
-![components](docs/components.jpg)
+![components](docs/components.jpg?raw=true)
 
 ## Usage
 

@@ -16,6 +16,8 @@ type RideRequest struct {
 	User      models.User
 }
 
+type RideRequestList []RideRequest
+
 func (m *RideRequest) Create() error {
 	DB := db.GetDBConn()
 	return DB.Create(m).Error
@@ -24,6 +26,6 @@ func (m *RideRequest) Create() error {
 func (m *RideRequest) CountRideRequestWithDistrictWithWindow(district string, w time.Duration) (int64, error) {
 	DB := db.GetDBConn()
 	var count int64
-	err := DB.Where("district=? and created_at BETWEEN ? AND ?", district, time.Now(), time.Now().Add(w)).Count(&count).Error
+	err := DB.Where("district=? AND created_at BETWEEN ? AND ?", district, time.Now().Add(-w), time.Now()).Find(&RideRequestList{}).Count(&count).Error
 	return count, err
 }

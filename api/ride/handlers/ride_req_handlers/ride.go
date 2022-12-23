@@ -47,8 +47,6 @@ func RideHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	nReq := db.GetRedisBackend().AddNewRequestWithPrefix(districtID)
-
 	rr := &models.RideRequest{
 		Lat:      rrv.Lat,
 		Long:     rrv.Long,
@@ -60,6 +58,9 @@ func RideHandler(w http.ResponseWriter, r *http.Request) {
 		http_response.ResponseWithError(w, http.StatusNotAcceptable, err)
 		return
 	}
+
+	nReq := db.GetRedisBackend().AddNewRequestWithPrefix(districtID)
+	// nReq, _ := rr.CountRideRequestWithDistrictWithWindow(districtID, time.Minute*10)
 
 	logrus.Debugln("number requets in window:", nReq)
 	coefficient, err := models.GetCurrentCoefficient(nReq)

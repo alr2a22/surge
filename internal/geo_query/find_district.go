@@ -2,7 +2,6 @@ package geo_query
 
 import (
 	"fmt"
-	"strings"
 	"surge/internal/db"
 )
 
@@ -11,7 +10,7 @@ func FindDistrict(lat, long float32) (string, error) {
 	var districtID string
 	p := fmt.Sprintf("POINT(%v %v)", long, lat)
 	err := DB.Raw(
-		`SELECT "name:en" FROM districts WHERE ST_Contains(wkb_geometry, ST_Transform(ST_GeomFromText(?,4326), 4326));`,
+		`SELECT id FROM districts WHERE ST_Contains(wkb_geometry, ST_Transform(ST_GeomFromText(?,4326), 4326));`,
 		p,
 	).Scan(&districtID).Error
 
@@ -19,5 +18,5 @@ func FindDistrict(lat, long float32) (string, error) {
 		return "", err
 	}
 
-	return strings.Split(districtID, " ")[1], nil
+	return districtID, nil
 }

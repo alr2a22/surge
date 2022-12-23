@@ -20,5 +20,3 @@ RUN mkdir /app
 
 COPY --from=builder /main /app/main
 EXPOSE 3000
-
-ENTRYPOINT ["/app/main", "run-server"]

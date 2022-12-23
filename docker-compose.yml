@@ -52,7 +52,7 @@ services:
     restart: always
     ports:
       - "3000:3000"
-    command: /app/main migrate && /app/main run-server
+    command: sh -c  "/app/main migrate && /app/main run-server"
     environment:
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}

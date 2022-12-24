@@ -35,6 +35,7 @@ Also for a PoC I consider these features:
 - Redis: Redis is an in-memory data structure store, used as a distributed, in-memory key–value database, cache and message broker, with optional durability.
 - Adminer: Adminer is a tool for managing content in databases.
 - query to calculate demand with PostGIS in [here](./api/ride/models/ride_req.go) and with redis in [here](./internal/db/redis.go).
+- OpenStreetMap: To get district polygons and import it to PostGIS run [query.txt](./data/query.txt) on [overpass](https://overpass-turbo.eu/#) site and export geojson data then use [import.sh](./scripts/import.sh) with proper database config.
 
 ![components](docs/components.jpg?raw=true)
 
